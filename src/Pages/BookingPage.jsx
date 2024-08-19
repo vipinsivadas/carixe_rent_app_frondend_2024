@@ -10,7 +10,7 @@ function BookingPage(props) {
     useEffect(() => {
         const fetchBookings = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/bookings');
+                const response = await axios.get(`${import.meta.env.VITE_API_URL}/bookings`);
                 setBookings(response.data);
             } catch (error) {
                 console.error('Error fetching bookings:', error);
@@ -21,7 +21,7 @@ function BookingPage(props) {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:3000/bookings/${id}`);
+            await axios.delete(`${import.meta.env.VITE_API_URL}/bookings/${id}`);
             setBookings(bookings.filter(booking => booking._id !== id));
             toast.success('Booking deleted successfully!');
         } catch (error) {
@@ -37,7 +37,7 @@ function BookingPage(props) {
             <h1 className='text-3xl flex justify-center pt-10'>BOOKING DETAILS</h1>
             <div className='h-1/2 p-2'>
                 <div className='mt-28 overflow-x-auto'>
-                    <table className='min-w-full bg-white shadow-md rounded-lg'>
+                    <table className='min-w-full bg-white shadow-md rounded-lg '>
                         <thead className='bg-gray-200'>
                             <tr>
                                 <th className='py-2 px-4'>Image</th>

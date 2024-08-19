@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 
 export async function loader() {
-    const res = await axios.get('http://localhost:3000/carlist')
+    const res = await axios.get(`${import.meta.env.VITE_API_URL}/carlist`)
     const data = res.data
     return { data }
 }
@@ -19,7 +19,7 @@ function Carmodel(props) {
 
     console.log(data)
     useEffect(() => {
-        axios.post('http://localhost:3000/users/verify', {}, { withCredentials: true })
+        axios.post(`${import.meta.env.VITE_API_URL}/users/verify`, {}, { withCredentials: true })
 
             .then((data) => {
                 console.log("loggen in")
@@ -44,7 +44,7 @@ function Carmodel(props) {
 
                             return <li className='mt-4 shadow-lg p-4 shadow-black/30' key={carlist._id}>
                                 <Link to={'/carmodel/' + carlist._id}>
-                                    <img className='w-60 h-52 cursor-pointer border-orange-200 rounded-sm' src={carlist.image} alt={carlist.name + "thumbnail"} />
+                                    <img className='w-60 h-52 cursor-pointer border-orange-200 rounded-sm ease-in-all duration-300 hover:scale-110' src={carlist.image} alt={carlist.name + "thumbnail"} />
                                     <h1 className='flex justify-center items-center text-xl'>{carlist.name}</h1>
                                     <h2 className='py-2'>{carlist.Discription}</h2>
                                     <div className='flex flex-row justify-between'>

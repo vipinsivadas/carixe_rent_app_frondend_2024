@@ -12,11 +12,11 @@ const PaymentPage = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label className="block text-gray-700 font-semibold mb-2">Full Name</label>
-                                <input type="text" className="w-full p-3 border border-gray-300 rounded" placeholder="John Doe" />
+                                <input type="text" className="w-full p-3 border border-gray-300 rounded" placeholder="name" />
                             </div>
                             <div>
                                 <label className="block text-gray-700 font-semibold mb-2">Email Address</label>
-                                <input type="email" className="w-full p-3 border border-gray-300 rounded" placeholder="john.doe@example.com" />
+                                <input type="email" className="w-full p-3 border border-gray-300 rounded" placeholder="vipin@gmail.com" />
                             </div>
                             <div>
                                 <label className="block text-gray-700 font-semibold mb-2">Phone Number</label>
